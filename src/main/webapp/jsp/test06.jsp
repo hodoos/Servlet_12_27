@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,25 +13,31 @@
 </head>
 <body>
 	
-	<form method="post" action="/jsp/test04.jsp">
-		<div class="container display-6">
-			<div><h1>사칙 연산</h1></div>
-			<div class="d-flex">
-				<input type="text" name="num1">
-				
-				<select name="symbol">
-					<option value="addition">+</option>
-					<option value="subtraction">-</option>
-					<option value="multiplication">X</option>
-					<option value="division">/</option>
-				</select>
-				
-				<input type="text" name="num2">
-				
-				<button type="submit" class="btn btn-success">계산</button>
-			</div>
+	<%
+		List<String> goodsList = Arrays.asList(new String[]{ 
+			"저지방 우유", "요플레 4개", "딸기 1팩", "삼겹살 300g", "생수 6개", "주방 세제"
+		});
+	
+	%>
+	<div>
+		<div><h1>장 목록</h1></div>
+		<div class="nav d-flex">
+			<ul>
+				<li>번호</li>
+				<% for(int i = 1; i <= goodsList.size(); i++){ %>
+				<li><%= i %></li>
+				<% } %>
+			</ul>
+			<ul>
+				<li>품목</li>
+				<% for(String goods:goodsList) { %>
+				<li><%= goods %></li>
+				<% } %>
+			</ul>
 		</div>
-	</form>
+	
+	</div>
+	
 
 </body>
 </html>
