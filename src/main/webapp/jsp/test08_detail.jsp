@@ -6,9 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
-
 	<%
 		 List<Map<String, Object>> list = new ArrayList<>();
 	    Map<String, Object> map = new HashMap<String, Object>() {
@@ -54,31 +57,31 @@
 	        } 
 	    };
 	    list.add(map);
+	    Integer id = Integer.parseInt(request.getParameter("id"));
 	%>
 	
-	<h1>책 목록</h1>
-	<table>
-		<thead>
-			<tr>
-				<th>id</th>
-				<th>표지</th>
-				<th>책제목</th>
-			</tr>
-		</thead>
-		
-		<tbody>
-			<% for(Map<String, Object> books:list) { %>
-			<tr>
-				<td><%= books.get("id") %></td>
-				<td><img src="<%= books.get("image") %>" width="100" height="100"></td>
-				<td>
-					<a href="/jsp/test08_detail.jsp?id=<%= books.get("id") %>"><%= books.get("title") %></a>
-				</td>
-			</tr>
+	
+	
+	<div class="container">
+	
+		<% for(Map<String, Object> book:list) { 
 			
-			<% } %>
-		</tbody>
-	</table>
+			if(book.get("id").equals(id)){
+		
+		%>
+		<div class="d-flex">
+			<div><img src="<%= book.get("image") %>"></div>
+			<div class="ml-4">
+				<div class="display-1 font-weight-bold"><%= book.get("title") %></div>
+				<div class="display-2 text-info"><%= book.get("author") %></div>
+				<div class="display-4"><%= book.get("publisher") %></div>
+			</div>
+		</div>
+		<% 
+			}
+		}
+		%>
+	</div>
 
 </body>
 </html>

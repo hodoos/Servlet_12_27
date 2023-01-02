@@ -27,6 +27,12 @@
 	    list.add(map);
 	    
 	    String searchMenu = request.getParameter("menu");
+	    // pointFilter 로 true, false
+	    String pointFilter = request.getParameter("pointFilter");
+	    //굳이 boolean을 안쓰고 String으로 처리
+	    if(pointFilter == null){
+	    	pointFilter = "false";
+	    }
 	%>
 	<div>
 		<h1 class="text-center">검색 결과</h1>
@@ -42,12 +48,16 @@
 			<tbody>
 				<% for(Map<String, Object> store:list) { 
 					if(searchMenu.equals(store.get("menu"))) {
+						
+						Double point = (Double)store.get("point");
+						if(pointFilter.equals("false") || pointFilter.equals("true") && point >= 4.0) {
 				%>
 				<tr>
 					<td><%= store.get("menu") %></td>
 					<td><%= store.get("name") %></td>
 					<td><%= store.get("point") %></td>
 				</tr>
+				<%   } %>
 				<% 	} %>
 				<% } %>
 			</tbody>
