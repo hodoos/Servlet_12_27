@@ -75,7 +75,7 @@
 				<tbody>
 				<%= category %> <!-- 현재 파라미터 값 확인용 -->
 					<% for(Map<String, String> info:list){
-						if(category == "전체") {	
+						if(category.equals("전체")) {	
 						//if(info.get("category").equals(category)){
 					%>
 					<tr>
