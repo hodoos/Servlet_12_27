@@ -12,8 +12,7 @@
 		<h1>체격 조건 입력</h1>
 		<input type="text" name="height">cm
 		<input type="text" name="weight">kg
-		<button type="submit">입력</button>
-	
+		<input type="submit" value="계산">
 	</form>
 	
 

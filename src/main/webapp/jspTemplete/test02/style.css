@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+header {
+	height:80px;
+}
+
+#melong-icon {
+	font-size: 25px;
+}
+
+.main-menu {
+	height:50px;
+}
+
+#artist-name {
+	font-size: 30px;
+}
+
+footer {
+	height:50px;
+}

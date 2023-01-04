@@ -51,6 +51,10 @@
 						
 						Double point = (Double)store.get("point");
 						if(pointFilter.equals("false") || pointFilter.equals("true") && point >= 4.0) {
+							
+							//if(pointFilter.equals("true") && point < 4.0) {
+								//continue;								
+							//}
 				%>
 				<tr>
 					<td><%= store.get("menu") %></td>

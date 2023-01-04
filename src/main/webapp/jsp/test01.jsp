@@ -23,9 +23,17 @@
 	<%
 		List<String> scoreList = Arrays.asList(new String[]{"X", "O", "O", "O", "X", "O", "O", "O", "X", "O"});
 		int score = 0;
+		int score2 = 0;
+		
 		for(int i = 0; i < scoreList.size(); i ++) {
 			if(scoreList.get(i).equals("O")){
-				score += 10;
+				score += 100 / scoreList.size();
+			}
+		}
+		
+		for(String check:scoreList) {
+			if(check.equals("O")){
+				score2 += 100 / scoreList.size();
 			}
 		}
 	%>

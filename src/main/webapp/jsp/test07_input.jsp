@@ -10,7 +10,7 @@
 	<form method="get" action="/jsp/test07.jsp">
 		<h1>메뉴 검색</h1>
 		<input type="text" name="menu">
-		<label><input type="checkbox" name="pointFilter" value="true" default="false"> 4점이하 제외</label>
+		<label><input type="checkbox" name="pointFilter" value="true"> 4점이하 제외</label>
 		<br>
 		<button type="submit">검색</button>
 	</form>
