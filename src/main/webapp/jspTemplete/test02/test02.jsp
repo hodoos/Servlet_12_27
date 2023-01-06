@@ -100,9 +100,9 @@
 	<div class="container">
 		<jsp:include page="header.jsp" />
 		<jsp:include page="menu.jsp" />
-		
+			
 		<section class="content">
-			<div style="border:2px solid green;">
+			<div class="border border-success">
 				<div class="d-flex p-3">
 					<div class="mr-4"><img width="200px" alt="아티스트 사진" src="<%= artistInfo.get("photo") %>"></div>
 					<div>

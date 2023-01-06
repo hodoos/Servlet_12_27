@@ -95,46 +95,57 @@
 	    
 		String musicName = request.getParameter("musicName");
 	%>
-	<jsp:include page="header.jsp" />
-	<jsp:include page="menu.jsp" />
-	<section class="content">
-			<div style="border:2px solid green;">
-				<div class="d-flex p-3">
-					<%for(Map<String, Object> info:musicList) {
-						if(info.get("title").equals(musicName)){
-					%>
-					<div class="mr-4"><img width="200px" alt="앨범 사진" src="<%= info.get("thumbnail") %>"></div>
-					<div>
-						<div><h1><%= info.get("title") %></h1></div>
-						<div class="font-weight-bold text-success mb-3"><%= info.get("singer") %></div>
-						<div style="font-size:small;">
-							<div>앨범  <%= info.get("album") %></div>
-							<div>재생시간  <%= info.get("time") %></div>
-							<div>작곡가  <%= info.get("composer") %></div>
-							<div>작사가  <%= info.get("lyricist") %></div>
+	
+	<% for(Map<String, Object> test:musicList){
+		if(!test.get("title").equals(musicName)){ %>
+			<div>미완성 기능</div>
+	<%	} else {
+	%>
+	<div class="container">
+		<jsp:include page="header.jsp" />
+		<jsp:include page="menu.jsp" />
+		<section class="content">
+				<div class="border border-success">
+					<div class="d-flex p-3">
+						<%for(Map<String, Object> info:musicList) {
+							if(info.get("title").equals(musicName)){
+						%>
+						<div class="mr-4"><img width="200px" alt="앨범 사진" src="<%= info.get("thumbnail") %>"></div>
+						<div>
+							<div><h1><%= info.get("title") %></h1></div>
+							<div class="font-weight-bold text-success mb-3"><%= info.get("singer") %></div>
+							<div style="font-size:small;">
+								<div>앨범  <%= info.get("album") %></div>
+								<div>재생시간  <%= info.get("time") %></div>
+								<div>작곡가  <%= info.get("composer") %></div>
+								<div>작사가  <%= info.get("lyricist") %></div>
+							</div>
 						</div>
+						<% 	} 
+						} %>
 					</div>
-					<% 	}
-					}%>
 				</div>
-			</div>
-			
-			<div>
-				<div class="mt-5"><h3>가 사</h3></div>
 				
-				<table class="table">
-					<thead>
-						<tr>
-							<th>가사 정보 없음</th>
-						</tr>
-					</thead>
+				<div>
+					<div class="mt-5"><h3>가 사</h3></div>
 					
-					<tbody>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>가사 정보 없음</th>
+							</tr>
+						</thead>
 						
-					</tbody>
-				</table>
-			</div>
-		</section>
-		<jsp:include page="footer.jsp" />
+						<tbody>
+							
+						</tbody>
+					</table>
+				</div>
+			</section>
+			<jsp:include page="footer.jsp" />
+			<% }
+			}
+			%>
+	</div>
 </body>
 </html>
